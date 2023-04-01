@@ -28,7 +28,7 @@ function Buscador() {
     }, []);
     return (
       
-        <div>
+        <div className='container'>
             <input
                 value={search}
                 onChange={searcher}
