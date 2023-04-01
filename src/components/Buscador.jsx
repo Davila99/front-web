@@ -5,7 +5,7 @@ function Buscador() {
     const [categorias, setCategorias] = useState([]);
     const [search, setSearch] = useState("");
 
-    const URL = 'http://localhost:8000/categorias';
+    const URL = 'http://localhost:8080/categorias';
 
     const getCategorias = async () => {
         const response = await fetch(URL);
@@ -21,7 +21,7 @@ function Buscador() {
     const results = !search
         ? categorias
         : categorias.filter((dato) =>
-              dato.firstName.toLowerCase().includes(search.toLocaleLowerCase())
+              dato.descripcion.toLowerCase().includes(search.toLocaleLowerCase())
           );
     useEffect(() => {
         getCategorias();
@@ -39,16 +39,14 @@ function Buscador() {
 
             <table className="table table-striped table-hover mt-5 shadow-lg">
                 <thead>
-                    <tr className="bg-curso text-white">
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
+                    <tr className="bg-curso">
+                        <th>Categorias</th>
                     </tr>
                 </thead>
                 <tbody>
                     {results.map((categoria) => (
                         <tr key={categoria.id}>
-                            <td>{categoria.firstName}</td>
-                            <td>{categoria.lastName}</td>
+                            <td>{categoria.descripcion}</td>
                         </tr>
                     ))}
                 </tbody>
