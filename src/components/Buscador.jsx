@@ -5,12 +5,13 @@ function Buscador() {
     const [categorias, setCategorias] = useState([]);
     const [search, setSearch] = useState("");
 
-    const URL = "http://127.0.0.1:8000/categorias";
+    const URL = 'http://localhost:8000/categorias';
 
     const getCategorias = async () => {
         const response = await fetch(URL);
+
         const data = await response.json();
-        setCategorias(data.categorias);
+        setCategorias(data);
     };
     console.log(categorias);
     const searcher = (e) => {
@@ -26,6 +27,7 @@ function Buscador() {
         getCategorias();
     }, []);
     return (
+      
         <div>
             <input
                 value={search}
