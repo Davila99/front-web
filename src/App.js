@@ -7,9 +7,8 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    // <Buscador/>
-    // <About/>
-  <Footer/>
+    <Buscador/>
+    
   );
 }
 
